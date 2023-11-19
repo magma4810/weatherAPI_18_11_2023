@@ -12,6 +12,8 @@ export const showWeather = async (selector) => {
   selector.append(listHTML);
   selector.append(showWeatherHTML);
   const key = "ab4639f5754271e773ed6d3ffd73f327";
+  const buttonContainer = document.createElement("div");
+  selector.append(buttonContainer);
   button.addEventListener("click", async () => {
     const value = input.value;
     const reject = await fetch(
@@ -23,5 +25,12 @@ export const showWeather = async (selector) => {
     let nameCity = weather.name;
     list.push({ temp, nameCity });
     showWeatherHTML.innerHTML = `${weather.main.temp}`;
+    await addButton(buttonContainer);
   });
+};
+
+export const addButton = async (selector) => {
+  selector.innerHTML = `<ul>${list
+    .map((el) => `<li><button>${el.nameCity}</button></li>`)
+    .join("")}</ul>`;
 };
