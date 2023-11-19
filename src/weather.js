@@ -28,8 +28,7 @@ export const showWeather = async (selector) => {
     await addButton(buttonContainer);
   });
 };
-console.log();
-export const addButton = async (selector) => {
+export const addButton = (selector) => {
   selector.innerHTML = `<ul>${list
     .map((el) => `<li><button>${el.nameCity}</button></li>`)
     .join("")}</ul>`;
