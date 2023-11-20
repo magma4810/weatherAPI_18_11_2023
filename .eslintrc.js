@@ -9,7 +9,6 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  ignorePatterns: [".eslintrc.js", "babel.config.js", "jest.config.js"],
   plugins: ["jest"],
   rules: {
     "no-console": "warn",

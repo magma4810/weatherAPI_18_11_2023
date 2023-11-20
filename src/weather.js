@@ -1,6 +1,6 @@
-const list = [];
-const city = [];
 const key = "ab4639f5754271e773ed6d3ffd73f327";
+const showWeatherHTML = document.createElement("b");
+const buttonContainer = document.createElement("div");
 export const showWeather = async (selector) => {
   document.body.append(selector);
   const input = document.createElement("input");
@@ -10,10 +10,8 @@ export const showWeather = async (selector) => {
   button.innerHTML = "Show weather";
   selector.append(button);
   const listHTML = document.createElement("ol");
-  const showWeatherHTML = document.createElement("b");
   selector.append(listHTML);
   selector.append(showWeatherHTML);
-  const buttonContainer = document.createElement("div");
   selector.append(buttonContainer);
   button.addEventListener("click", async () => {
     const value = input.value;
@@ -22,13 +20,10 @@ export const showWeather = async (selector) => {
     let temp = weather.main.temp;
     let nameCity = weather.name;
     let icon = weather.weather[0].icon;
-    list.unshift({ temp, nameCity, icon });
-    city.push(nameCity);
-    // console.log(city,city.includes(value))
-    // if(!city.includes(value)){
-    //     addButton(buttonContainer,showWeatherHTML);
-    // }
+    list.push({ temp, nameCity, icon });
     addButton(buttonContainer, showWeatherHTML);
+    saveList(lastClickCityKey, nameCity);
+    saveList(storageKey, list);
   });
 };
 export const getAndShowWeather = async (city, selector) => {
@@ -45,16 +40,41 @@ export const getAndShowWeather = async (city, selector) => {
 };
 export const addButton = (selector, showWeatherHTML) => {
   const button = document.createElement("button");
-  button.innerHTML = list[0].nameCity;
+  button.innerHTML = list[list.length - 1].nameCity;
   selector.append(button);
   showWeatherCityButton(button, showWeatherHTML);
 };
 export const showWeatherCityButton = (selector, showWeatherHTML) => {
   selector.addEventListener("click", async () => {
-    for (let i = 0; i < list.length; i++) {
-      if (selector.innerHTML === list[i].nameCity) {
-        await getAndShowWeather(list[i].nameCity, showWeatherHTML);
-      }
-    }
+    await getAndShowWeather(selector.innerHTML, showWeatherHTML);
+    saveList(lastClickCityKey, selector.innerHTML);
   });
 };
+const storageKey = "items";
+const lastClickCityKey = "lastCity";
+export const saveList = (storageKey, items) => {
+  localStorage.setItem(storageKey, JSON.stringify(items));
+};
+export const readList = async (storageKey) => {
+  const data = localStorage.getItem(storageKey);
+  return data === null ? [] : JSON.parse(data);
+};
+const list = await readList(storageKey);
+const lastClickCity = await readList(lastClickCityKey);
+export const showAllButtons = () => {
+  for (let i = 0; i < list.length; i++) {
+    const button = document.createElement("button");
+    button.innerHTML = list[i].nameCity;
+    buttonContainer.append(button);
+    showWeatherCityButton(button, showWeatherHTML);
+  }
+};
+if (list.length !== 0) {
+  if (lastClickCity.length !== 0) {
+    getAndShowWeather(lastClickCity, showWeatherHTML);
+    showAllButtons();
+  } else {
+    getAndShowWeather(list[0].nameCity, showWeatherHTML);
+    showAllButtons();
+  }
+}
