@@ -16,7 +16,9 @@
     "@babel/core": "^7.23.3",
     "@babel/preset-env": "^7.23.3",
     "@types/jest": "^29.5.8",
+    "@types/node-fetch": "^2.6.9",
     "babel-jest": "^29.7.0",
+    "cross-fetch": "^4.0.0",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jest": "^27.6.0",
@@ -29,5 +31,8 @@
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.{js,css}": "prettier --write"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }

@@ -1,12 +1,12 @@
-import { showWeather } from "./weather";
+import { showWeather } from "./weather.js";
 
 describe("sample Weather", () => {
   let div;
   let button;
   let input;
-  beforeEach(async () => {
+  beforeEach(() => {
     div = document.createElement("div");
-    await showWeather(div);
+    showWeather(div);
     button = div.querySelector("button");
     input = div.querySelector("input");
   });

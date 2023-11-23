@@ -1,3 +1,6 @@
+// import {storageKey,lastClickCityKey,list,lastClickCity} from './library.js'
+const storageKey = "items";
+const lastClickCityKey = "lastCity";
 const key = "ab4639f5754271e773ed6d3ffd73f327";
 const showWeatherHTML = document.createElement("b");
 const buttonContainer = document.createElement("div");
@@ -50,8 +53,6 @@ export const showWeatherCityButton = (selector, showWeatherHTML) => {
     saveList(lastClickCityKey, selector.innerHTML);
   });
 };
-const storageKey = "items";
-const lastClickCityKey = "lastCity";
 export const saveList = (storageKey, items) => {
   localStorage.setItem(storageKey, JSON.stringify(items));
 };
@@ -59,8 +60,6 @@ export const readList = async (storageKey) => {
   const data = localStorage.getItem(storageKey);
   return data === null ? [] : JSON.parse(data);
 };
-const list = await readList(storageKey);
-const lastClickCity = await readList(lastClickCityKey);
 export const showAllButtons = () => {
   for (let i = 0; i < list.length; i++) {
     const button = document.createElement("button");
@@ -69,6 +68,8 @@ export const showAllButtons = () => {
     showWeatherCityButton(button, showWeatherHTML);
   }
 };
+const list = await readList(storageKey);
+const lastClickCity = await readList(lastClickCityKey);
 if (list.length !== 0) {
   if (lastClickCity.length !== 0) {
     getAndShowWeather(lastClickCity, showWeatherHTML);

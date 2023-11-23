@@ -4,6 +4,7 @@
  */
 
 /** @type {import('jest').Config} */
+
 const config = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -196,3 +197,12 @@ const config = {
 };
 
 module.exports = config;
+// module.exports = {
+//   testEnvironment: 'jsdom',
+//   injectGlobals: true,
+//   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+//   moduleNameMapper: {
+//     '\\.(css|less|scss)$': 'identity-obj-proxy',
+//     '^@/(.*)$': '<rootDir>/src/$1',
+//   },
+// };
