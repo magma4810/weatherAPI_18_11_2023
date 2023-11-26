@@ -1,15 +1,13 @@
-import { addButton, showAllButtons } from "./button.js";
-import { saveList } from "./storage.js";
+import { showAllButtons } from "./button.js";
+import { readList } from "./storage.js";
 import { showWeatherInSelector } from "./showWeatherInSelector.js";
+import { addInfoToList } from "./addInfoToList.js";
 import {
   showWeatherHTML,
   buttonContainer,
   lastClickCityKey,
   storageKey,
-  list,
-  lastClickCity,
 } from "./library.js";
-
 export const showWeather = async (selector) => {
   document.body.append(selector);
   const input = document.createElement("input");
@@ -22,25 +20,25 @@ export const showWeather = async (selector) => {
   selector.append(listHTML);
   selector.append(showWeatherHTML);
   selector.append(buttonContainer);
+  const list = await readList(storageKey);
+  const lastClickCity = await readList(lastClickCityKey);
+  if (list.length !== 0) {
+    if (lastClickCity.length !== 0) {
+      showWeatherInSelector(lastClickCity, showWeatherHTML);
+      showAllButtons(showWeatherHTML, list);
+    } else {
+      showWeatherInSelector(list[0].nameCity, showWeatherHTML);
+      showAllButtons(showWeatherHTML, list);
+    }
+  } else {
+    const userCity = fetch("https://get.geojs.io/v1/ip/geo.json")
+      .then((ip) => ip.json())
+      .then((userCity) => userCity.city);
+    addInfoToList(await userCity, showWeatherHTML, list);
+  }
   button.addEventListener("click", async () => {
     const value = input.value;
-    const weather = await showWeatherInSelector(value, showWeatherHTML);
     input.value = "";
-    let temp = weather.main.temp;
-    let nameCity = weather.name;
-    let icon = weather.weather[0].icon;
-    list.push({ temp, nameCity, icon });
-    addButton(buttonContainer, showWeatherHTML);
-    saveList(lastClickCityKey, nameCity);
-    saveList(storageKey, list);
+    await addInfoToList(value, showWeatherHTML, list);
   });
 };
-if (list.length !== 0) {
-  if (lastClickCity.length !== 0) {
-    showWeatherInSelector(lastClickCity, showWeatherHTML);
-    showAllButtons(showWeatherHTML);
-  } else {
-    showWeatherInSelector(list[0].nameCity, showWeatherHTML);
-    showAllButtons(showWeatherHTML);
-  }
-}
