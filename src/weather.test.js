@@ -1,5 +1,5 @@
 import { showWeather } from "./showWeather";
-
+import "whatwg-fetch";
 describe("sample Weather", () => {
   let div;
   let button;
