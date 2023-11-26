@@ -1,4 +1,4 @@
-import { showWeather } from "./weather";
+import { showWeather } from "./showWeather";
 
 describe("sample Weather", () => {
   let div;

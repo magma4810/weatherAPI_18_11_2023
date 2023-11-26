@@ -1,3 +1,3 @@
-import { showWeather } from "./weather.js";
+import { showWeather } from "./showWeather.js";
 
 await showWeather(document.createElement("div"));
