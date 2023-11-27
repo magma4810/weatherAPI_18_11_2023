@@ -15,7 +15,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [".eslintrc.js", "babel.config.js", "jest.config.js"],
+      files: [".eslintrc.js", "babel.config.js", "jest.config.js", "ymaps.js"],
       env: {
         node: true,
       },
