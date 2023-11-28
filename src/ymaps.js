@@ -1,4 +1,4 @@
-import * as ymaps3 from "ymaps3";
+// import * as ymaps3 from "ymaps3";
 
 export async function initMap(userCity) {
   // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API

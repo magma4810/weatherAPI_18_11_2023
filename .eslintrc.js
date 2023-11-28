@@ -13,9 +13,10 @@ module.exports = {
   rules: {
     "no-console": "warn",
   },
+  ignorePatterns: ["ymaps.js"], //  7:44  error  'ymaps3' is not defined  no-undef
   overrides: [
     {
-      files: [".eslintrc.js", "babel.config.js", "jest.config.js", "ymaps.js"],
+      files: [".eslintrc.js", "babel.config.js", "jest.config.js"],
       env: {
         node: true,
       },

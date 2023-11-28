@@ -1,3 +1,5 @@
 import { showWeather } from "./showWeather.js";
 
-await showWeather(document.createElement("div"));
+const weather = document.createElement("div");
+weather.id = "weather";
+await showWeather(weather);
