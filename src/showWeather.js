@@ -34,10 +34,13 @@ export const showWeather = async (selector) => {
   if (list.length !== 0) {
     if (lastClickCity.length !== 0) {
       showWeatherAndMapInSelector(lastClickCity, showWeatherHTML);
-      showAllButtons(showWeatherHTML, list);
+      await showAllButtons(showWeatherHTML, list);
     } else {
-      showWeatherAndMapInSelector(list[0].nameCity, showWeatherHTML);
-      showAllButtons(showWeatherHTML, list);
+      showWeatherAndMapInSelector(
+        list[list.length - 1].nameCity,
+        showWeatherHTML,
+      );
+      await showAllButtons(showWeatherHTML, list);
     }
   } else {
     addInfoToListFirstLaunch(showWeatherHTML, list);

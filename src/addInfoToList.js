@@ -10,7 +10,7 @@ export const addInfoToList = async (value, showWeatherHTML, list) => {
   let temp = weather.main.temp;
   let nameCity = weather.name;
   let icon = weather.weather[0].icon;
-  list.push({ temp, nameCity, icon });
+  list.unshift({ temp, nameCity, icon });
   addButton(showWeatherHTML, list);
   saveList(lastClickCityKey, nameCity);
   saveList(storageKey, list);
@@ -34,7 +34,7 @@ export const addInfoToListFirstLaunch = async (showWeatherHTML, list) => {
   let temp = weather.main.temp;
   let nameCity = weather.name;
   let icon = weather.weather[0].icon;
-  list.push({ temp, nameCity, icon });
+  list.unshift({ temp, nameCity, icon });
   saveList(lastClickCityKey, nameCity);
   saveList(storageKey, list);
   addButton(showWeatherHTML, list);

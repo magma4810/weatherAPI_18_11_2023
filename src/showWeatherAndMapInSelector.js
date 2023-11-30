@@ -2,6 +2,7 @@ import { getWeather } from "./getWeather.js";
 import { initMap } from "./ymaps.js";
 
 export const showWeatherAndMapInSelector = async (city) => {
+  console.log(city);
   const weather = await getWeather(city);
   const userCity = fetch(
     `https://geocode-maps.yandex.ru/1.x/?apikey=96aaccbc-e728-4c64-bcf3-ba18bc4c3d20&geocode=${city}&format=json`,
