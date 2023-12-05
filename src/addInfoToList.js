@@ -17,7 +17,7 @@ export const addInfoToList = async (value, showWeatherHTML, list) => {
   addButton(showWeatherHTML, list);
   saveList(lastClickCityKey, nameCity);
   saveList(storageKey, list);
-  location.reload();
+  // location.reload();
 };
 
 export const addInfoToListFirstLaunch = async (showWeatherHTML, list) => {
@@ -45,5 +45,5 @@ export const addInfoToListFirstLaunch = async (showWeatherHTML, list) => {
   saveList(lastClickCityKey, nameCity);
   saveList(storageKey, list);
   addButton(showWeatherHTML, list);
-  location.reload();
+  // location.reload();
 };
