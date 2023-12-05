@@ -1,4 +1,4 @@
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+![example event parameter](https://github.com/magma4810/weatherAPI_18_11_2023/actions/runs/7104972103/job/19341117036)
 
 # Hi there, I'm Pasha![](https://github.com/blackcater/blackcater/raw/main/images/Hi.gif)
 
