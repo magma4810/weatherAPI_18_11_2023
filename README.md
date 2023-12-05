@@ -1,3 +1,5 @@
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+
 # Hi there, I'm Pasha![](https://github.com/blackcater/blackcater/raw/main/images/Hi.gif)
 
 ## Beginner front-end developer-student from Russia 🇷🇺.
