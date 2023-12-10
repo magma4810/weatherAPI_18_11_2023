@@ -1,7 +1,7 @@
 ![example event parameter](https://github.com/magma4810/weatherAPI_18_11_2023/actions/workflows/sanity-check.yml/badge.svg)
 
 # Hi there, I'm Pasha![](https://github.com/blackcater/blackcater/raw/main/images/Hi.gif)
-
+[](https://magma4810.github.io/weatherAPI_18_11_2023/)
 ## Beginner front-end developer-student from Russia 🇷🇺.
 
 #### This is my first project, don't judge strictly. 😃
