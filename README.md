@@ -1,12 +1,14 @@
 ![example event parameter](https://github.com/magma4810/weatherAPI_18_11_2023/actions/workflows/sanity-check.yml/badge.svg)
 
 # Hi there, I'm Pasha![](https://github.com/blackcater/blackcater/raw/main/images/Hi.gif)
-[](https://magma4810.github.io/weatherAPI_18_11_2023/)
+
 ## Beginner front-end developer-student from Russia 🇷🇺.
 
 #### This is my first project, don't judge strictly. 😃
 
 # weatherAPI_18_11_2023
+
+[Website for viewing the application](https://magma4810.github.io/weatherAPI_18_11_2023/)
 
 - The application is written to display the user's weather in his city.
 
@@ -25,6 +27,8 @@
 ## Начинающий front-end разработчик-студент из России 🇷🇺.
 
 #### Это мой первый проект, не судите строго. 😃
+
+[Сайт для просмотра приложения](https://magma4810.github.io/weatherAPI_18_11_2023/)
 
 - Приложение написано для отображения погоды пользователя в его городе.
 
