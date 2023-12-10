@@ -34,7 +34,8 @@
     "whatwg-fetch": "^3.6.19"
   },
   "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.{js,css}": "prettier --write"
+    "*.js": "eslint --cache --fix",
+    "*.{js,css}": "prettier --write",
+    "*.{js,css,md}": "prettier --write"
   }
 }
