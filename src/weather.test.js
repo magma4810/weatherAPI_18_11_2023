@@ -13,6 +13,6 @@ describe("sample Weather", () => {
   it("show input and button", () => {
     expect(button).toBeTruthy();
     expect(input).toBeTruthy();
-    expect(button.innerHTML).toBe("");
+    expect(button.innerHTML).toBe("Show weather");
   });
 });
