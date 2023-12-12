@@ -13,7 +13,7 @@ module.exports = {
   rules: {
     "no-console": "warn",
   },
-  ignorePatterns: ["ymaps.js", "dist", "webpack.config.js"], //  7:44  error  'ymaps3' is not defined  no-undef, не знаю как решить кроме как закинуть в игнор
+  ignorePatterns: ["ymaps.js", "dist", "webpack.config.js", "coverage"], //  7:44  error  'ymaps3' is not defined  no-undef, не знаю как решить кроме как закинуть в игнор
   overrides: [
     {
       files: [".eslintrc.js", "babel.config.js", "jest.config.js"],
