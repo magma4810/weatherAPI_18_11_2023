@@ -4,6 +4,7 @@ import { buttonContainer } from "./library.js";
 export const addButton = (showWeatherHTML, list) => {
   const li = document.createElement("li");
   const button = document.createElement("button");
+  button.id = "buttonName";
   button.innerHTML = list[list.length - 1].nameCity;
   li.append(button);
   buttonContainer.append(li);
