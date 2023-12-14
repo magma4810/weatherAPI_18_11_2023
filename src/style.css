@@ -1,0 +1,15 @@
+.map {
+  width: 250px;
+  height: 150px;
+  float: right;
+}
+.clearStorage {
+  float: right;
+}
+.button {
+  color: brown;
+}
+body {
+  zoom: 200%;
+  background-color: rgb(193, 246, 246);
+}
